@@ -8,6 +8,7 @@ import { Employee } from './employee';
 })
 export class SignINService {
 
+isLoggedIn:boolean=false;
   constructor(private http:HttpClient) { }
 
   public loginUserFromRemote(employee:Employee):Observable<any>{

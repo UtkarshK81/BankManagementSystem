@@ -22,6 +22,7 @@ export class LoginManagementComponent implements OnInit {
       data =>{ 
         console.log("Response Received");
         this.router.navigate(['/response']);
+        this.service.isLoggedIn=true;
 
     },
       error =>{ 
