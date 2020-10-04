@@ -21,12 +21,12 @@ export class LoginManagementComponent implements OnInit {
     this.service.loginUserFromRemote(this.employee).subscribe(
       data =>{ 
         console.log("Response Received");
-        this.router.navigate(['/response']);
+        this.router.navigateByUrl('/accountManagement');
         this.service.isLoggedIn=true;
 
     },
       error =>{ 
-        console.log("Exception Occured");
+        console.log("Wrong Details");
         this.message="Wrong EmailID and Password.Login Again";
       }
       

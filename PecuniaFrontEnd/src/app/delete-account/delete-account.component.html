@@ -1,0 +1,78 @@
+
+<br>
+<h3 class="text-center"><u>Delete Account</u></h3>
+<br>
+<div class="container">
+    <div class="row">
+               <div id="custom-search-input">
+                                <div class="input-group col-md-12" style="text-align: center">
+                                    <input type="text" class="search-query form-control" placeholder="Search With Account Number"  name="accountNumber" [(ngModel)]="accountNumber"/>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-danger" type="button" (click)="findAccountById()">
+                                            <span class=" glyphicon glyphicon-search"></span>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+    </div> 
+</div>
+
+
+<div>
+    
+    <table class="table table-striped custab">
+    <thead>
+        <tr>
+            <th>Account Number</th>
+            <th>Account Type</th>
+            <th>Account Status</th>
+            <th>Account Balance</th>
+            <th>Customer Id</th>
+            <th>Customer Name</th>
+            <th>Aadhar No.</th>
+            <th>Contact No.</th>
+            <th>PAN No.</th>
+            <th>Email</th>
+            <th>DOB</th>
+            <th>Customer Gender</th>
+            <th>Address Id</th>
+            <th>Address Line1</th>
+            <th>Address Line2</th>
+            <th>Address Line3</th>
+            <th>Address City</th>
+            <th>Address State</th>
+            <th>Address Country</th>
+            <th>Address ZipCode</th>
+            <th>Action</th>
+            
+           
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let regist of register">
+            <td>{{regist.accountNumber}}</td>
+            <td>{{regist.accountType}}</td>
+            <td>{{regist.accountStatus}}</td>
+            <td>{{regist.accountBalance}}</td>
+            <td>{{regist.customer?.custId}}</td>
+            <td>{{regist.customer?.custName}}</td>
+            <td>{{regist.customer?.custAadhar}}</td>
+            <td>{{regist.customer?.custContact}}</td>
+            <td>{{regist.customer?.custPan}}</td>
+            <td>{{regist.customer?.custEmail}}</td>
+            <td>{{regist.customer?.custDob}}</td>
+            <td>{{regist.customer?.gender}}</td>
+            <td>{{regist.customer?.address?.addressId}}</td>
+            <td>{{regist.customer?.address?.addressLine1}}</td>
+            <td>{{regist.customer?.address?.addressLine2}}</td>
+            <td>{{regist.customer?.address?.addressLine3}}</td>
+            <td>{{regist.customer?.address?.addressCity}}</td>
+            <td>{{regist.customer?.address?.addressState}}</td>
+            <td>{{regist.customer?.address?.addressCountry}}</td>
+            <td>{{regist.customer?.address?.addressZipcode}}</td>
+            <td class="text-center"><button class="btn btn-danger btn-xs" (click)="deleteAccount(regist.accountNumber)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td> 
+           
+          </tr>
+    </tbody>
+    </table>
+  </div>

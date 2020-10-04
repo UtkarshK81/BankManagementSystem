@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { SignINService } from './sign-in.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'PecuniaFrontEnd';
+  title = 'Pecunia-Passbook';
+
+  constructor(private service: SignINService,private router: Router) { }
+
+  logout(){
+    this.service.isLoggedIn=false;
+    this.router.navigateByUrl('/login');
+  }
 }

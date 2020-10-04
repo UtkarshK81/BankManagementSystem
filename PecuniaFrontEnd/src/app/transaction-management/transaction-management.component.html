@@ -1,1 +1,319 @@
-<p>transaction-management works!</p>
+<div class="card">  
+    <div class="card-header">  
+        <h1 style="text-align: center">Transaction Management</h1><br>  
+       
+      </div>  
+    
+      
+    <div class="card-body">  
+        <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#creditUsingSlipModal">Credit Using Slip</button>
+        <button type="button" class="btn btn-secondary btn-lg btn-block" data-toggle="modal" data-target="#debitUsingSlipModal">Debit Using Slip</button>
+        <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#creditUsingChequeModal">Credit Using Cheque</button>
+        <button type="button" class="btn btn-secondary btn-lg btn-block" data-toggle="modal" data-target="#debitUsingChequeModal">Debit Using Cheue</button>
+    </div>  
+  </div> 
+ 
+<div class="modal fade" id="creditUsingSlipModal" tabindex="-1" aria-labelledby="creditUsingSlipModallLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="creditUsingSlipModalLabel">Credit Using Slip</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="creditUsingSlip()" #form="ngForm" class="needs-validation" novalidate>
+            
+            <div class="form-group">
+                <label><strong>Account Number</strong> </label>
+                <input required type="number" #accountNumberRef="ngModel" pattern=[0-9]* minlength="10" maxlength="10"
+                    placeholder="Enter Account Number" name="accountNumber" [(ngModel)]="accountNumber" class="form-control" required />
+    
+                <div *ngIf="(accountNumberRef.invalid) && (accountNumberRef.touched)" class="alert alert-danger" style="margin-top: 5px;">
+                    <span *ngIf="accountNumberRef.errors.required"> Please Enter Account number </span>
+                    <span *ngIf="accountNumberRef.errors.pattern">Account number should be only numbers</span>
+                    <span *ngIf="accountNumberRef.errors.minlength">Account number should be of 10 digits</span>
+                    <span *ngIf="accountNumberRef.errors.maxlength">Account number should be of 10 digits</span>
+                </div>
+    
+            </div>
+    
+            <div class="form-group">
+                <label for="amount"><strong>Amount</strong></label>
+                <input type="number" #amountRef="ngModel" class="form-control" name="amount" [(ngModel)]="amount" required/>
+                <div *ngIf="(amountRef.invalid) && (amountRef.touched)" class="alert alert-danger" style="margin-top: 5px;" >
+                  <span *ngIf="amountRef.errors.required"> Please Enter amount </span>
+                </div> 
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              <button type="submit" [disabled]="form.invalid" value="submit" class="btn btn-success" >Proceed</button>
+            </div>
+          </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="creditUsingChequeModal" tabindex="-1" aria-labelledby="creditUsingChequeModallLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="creditUsingChequeModal">Credit Using Cheque</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="creditUsingCheque()" #form="ngForm" class="needs-validation" novalidate>
+            
+            <div class="form-group">
+                <label><strong>Payee Account Number</strong> </label>
+                <input required type="number" #accountNumberRef="ngModel" pattern=[0-9]* minlength="10" maxlength="10"
+                    placeholder="Enter Account Number" name="accountNumber" [(ngModel)]="accountNumber" class="form-control" required />
+    
+                    <div *ngIf="(accountNumberRef.invalid) && (accountNumberRef.touched)" class="alert alert-danger" style="margin-top: 5px;">
+                      <span *ngIf="accountNumberRef.errors.required"> Please Enter Payee Account number </span>
+                      <span *ngIf="accountNumberRef.errors.pattern">Account number should be only numbers</span>
+                      <span *ngIf="accountNumberRef.errors.minlength">Account number should be of 10 digits</span>
+                      <span *ngIf="accountNumberRef.errors.maxlength">Account number should be of 10 digits</span>
+                  </div>
+    
+            </div>
+            
+            <div class="form-group">
+                <label><strong>cheque Account Number</strong> </label>
+                <input required type="number" #chequeAccountNumberRef="ngModel" pattern=[0-9]* minlength="10" maxlength="10"
+                    placeholder="Enter Account Number" name="chequeAccountNumber" [(ngModel)]="chequeAccountNumber" class="form-control" required />
+    
+                    <div *ngIf="(chequeAccountNumberRef.invalid) && (chequeAccountNumberRef.touched)" class="alert alert-danger" style="margin-top: 5px;">
+                      <span *ngIf="chequeAccountNumberRef.errors.required"> Please Enter Payee Account number </span>
+                      <span *ngIf="chequeAccountNumberRef.errors.pattern">Account number should be only numbers</span>
+                      <span *ngIf="chequeAccountNumberRef.errors.minlength">Account number should be of 10 digits</span>
+                      <span *ngIf="chequeAccountNumberRef.errors.maxlength">Account number should be of 10 digits</span>
+                  </div>
+    
+            </div>
+
+            <div class="form-group">
+              <label><strong>cheque Number</strong> </label>
+              <input required type="text" #chequeNumberRef="ngModel" 
+                  placeholder="Enter Name" name="chequeNumber" [(ngModel)]="chequeNumber" class="form-control" required />
+  
+                  <div *ngIf="(chequeNumberRef.invalid) && (chequeNumberRef.touched)" class="alert alert-danger" style="margin-top: 5px;" >
+                    <span *ngIf="chequeNumberRef.errors.required"> Please Enter Cheque Number </span>
+                  </div> 
+  
+          </div>
+
+            <div class="form-group">
+                <label><strong>cheque Holder Name</strong> </label>
+                <input required type="text" #chequeHolderNameRef="ngModel" 
+                    placeholder="Enter Name" name="chequeHolderName" [(ngModel)]="chequeHolderName" class="form-control" required />
+    
+                    <div *ngIf="(chequeHolderNameRef.invalid) && (chequeHolderNameRef.touched)" class="alert alert-danger" style="margin-top: 5px;" >
+                      <span *ngIf="chequeHolderNameRef.errors.required"> Please Enter Cheque Holder Name </span>
+                    </div>
+    
+            </div>
+            <div class="form-group">
+                <label><strong>cheque Bank Name</strong> </label>
+                <input required type="text" #chequeBankNameRef="ngModel" 
+                    placeholder="Enter Bank Name" name="chequeBankName" [(ngModel)]="chequeBankName" class="form-control" required />
+    
+                    <div *ngIf="(chequeBankNameRef.invalid) && (chequeBankNameRef.touched)" class="alert alert-danger" style="margin-top: 5px;" >
+                      <span *ngIf="chequeBankNameRef.errors.required"> Please Enter Cheque Bank Name </span>
+                    </div>
+    
+            </div>
+            <div class="form-group">
+                <label><strong>Cheque Ifsc</strong> </label>
+                <input  type="text" #chequeIfscRef="ngModel" 
+                    placeholder="Enter Bank IFSC" name="chequeIfsc" [(ngModel)]="chequeIfsc" class="form-control" required />
+    
+                    <div *ngIf="(chequeIfscRef.invalid) && (chequeIfscRef.touched)" class="alert alert-danger" style="margin-top: 5px;" >
+                      <span *ngIf="chequeIfscRef.errors.required"> Please Enter Cheque IFSC </span>
+                    </div>
+    
+            </div>
+`           
+            <div class="form-group">
+                <label for="chequeIssueDate"><strong>Cheque Issue Date</strong></label>
+                <input type="date" class="form-control"  placeholder="Select Cheque issue date" #chequeIssueDateRef="ngModel" name="chequeIssueDate" [(ngModel)]="chequeIssueDate" required/>
+                <div *ngIf="(chequeIssueDateRef.invalid) && (chequeIssueDateRef.touched)" class="alert alert-danger" style="margin-top: 5px;" >
+                  <span *ngIf="chequeIssueDateRef.errors.required"> Please Enter Cheque issue date </span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="chequeAmount"><strong>Cheque Amount</strong></label>
+                <input type="number" class="form-control" placeholder="Enter the amount" name="chequeAmount" #chequeAmountRef="ngModel" [(ngModel)]="chequeAmount" required/>
+                <div *ngIf="(chequeAmountRef.invalid) && (chequeAmountRef.touched)" class="alert alert-danger" style="margin-top: 5px;" >
+                  <span *ngIf="chequeAmountRef.errors.required"> Please Enter Cheque amount </span>
+                </div> 
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              <button type="submit" [disabled]="form.invalid" value="submit"  class="btn btn-success" >Proceed</button>
+            </div>
+          </form>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal fade" id="debitUsingSlipModal" tabindex="-1" aria-labelledby="debitUsingSlipModallLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="debitUsingSlipModal">Debit Using Slip</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="creditUsingSlip()" #form="ngForm" class="needs-validation" novalidate>
+            
+            <div class="form-group">
+                <label><strong>Account Number</strong> </label>
+                <input required type="number" #accountNumberRef="ngModel" pattern=[0-9]* minlength="10" maxlength="10"
+                    placeholder="Enter Account Number" name="accountNumber" [(ngModel)]="accountNumber" class="form-control" required />
+    
+                <div *ngIf="(accountNumberRef.invalid) && (accountNumberRef.touched)" class="alert alert-danger" style="margin-top: 5px;">
+                    <span *ngIf="accountNumberRef.errors.required"> Please Enter Account number </span>
+                    <span *ngIf="accountNumberRef.errors.pattern">Account number should be only numbers</span>
+                    <span *ngIf="accountNumberRef.errors.minlength">Account number should be of 10 digits</span>
+                    <span *ngIf="accountNumberRef.errors.maxlength">Account number should be of 10 digits</span>
+                </div>
+    
+            </div>
+    
+            <div class="form-group">
+                <label for="amount"><strong>Amount</strong></label>
+                <input type="number" #amountRef="ngModel" class="form-control" name="amount" [(ngModel)]="amount" required/>
+                <div *ngIf="(amountRef.invalid) && (amountRef.touched)" class="alert alert-danger" style="margin-top: 5px;" >
+                  <span *ngIf="amountRef.errors.required"> Please Enter amount </span>
+                </div> 
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              <button type="submit"  value="submit" class="btn btn-success" >Proceed</button>
+            </div>
+          </form>
+    
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal fade" id="debitUsingChequeModal" tabindex="-1" aria-labelledby="debitUsingChequeModallLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="debitUsingChequeModal">Credit Using Cheque</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="debitUsingCheque()" #form="ngForm" class="needs-validation" novalidate>
+            
+            <div class="form-group">
+              <label><strong>Payee Account Number</strong> </label>
+              <input required type="number" #accountNumberRef="ngModel" pattern=[0-9]* minlength="10" maxlength="10"
+                  placeholder="Enter Account Number" name="accountNumber" [(ngModel)]="accountNumber" class="form-control" required />
+  
+                  <div *ngIf="(accountNumberRef.invalid) && (accountNumberRef.touched)" class="alert alert-danger" style="margin-top: 5px;">
+                    <span *ngIf="accountNumberRef.errors.required"> Please Enter Payee Account number </span>
+                    <span *ngIf="accountNumberRef.errors.pattern">Account number should be only numbers</span>
+                    <span *ngIf="accountNumberRef.errors.minlength">Account number should be of 10 digits</span>
+                    <span *ngIf="accountNumberRef.errors.maxlength">Account number should be of 10 digits</span>
+                </div>
+  
+          </div>
+          
+          <div class="form-group">
+              <label><strong>cheque Account Number</strong> </label>
+              <input required type="number" #chequeAccountNumberRef="ngModel" pattern=[0-9]* minlength="10" maxlength="10"
+                  placeholder="Enter Account Number" name="chequeAccountNumber" [(ngModel)]="chequeAccountNumber" class="form-control" required />
+  
+                  <div *ngIf="(chequeAccountNumberRef.invalid) && (chequeAccountNumberRef.touched)" class="alert alert-danger" style="margin-top: 5px;">
+                    <span *ngIf="chequeAccountNumberRef.errors.required"> Please Enter Payee Account number </span>
+                    <span *ngIf="chequeAccountNumberRef.errors.pattern">Account number should be only numbers</span>
+                    <span *ngIf="chequeAccountNumberRef.errors.minlength">Account number should be of 10 digits</span>
+                    <span *ngIf="chequeAccountNumberRef.errors.maxlength">Account number should be of 10 digits</span>
+                </div>
+  
+          </div>
+
+          <div class="form-group">
+            <label><strong>cheque Number</strong> </label>
+            <input required type="text" #chequeNumberRef="ngModel" 
+                placeholder="Enter Name" name="chequeNumber" [(ngModel)]="chequeNumber" class="form-control" required />
+
+                <div *ngIf="(chequeNumberRef.invalid) && (chequeNumberRef.touched)" class="alert alert-danger" style="margin-top: 5px;" >
+                  <span *ngIf="chequeNumberRef.errors.required"> Please Enter Cheque Number </span>
+                </div> 
+
+        </div>
+
+          <div class="form-group">
+              <label><strong>cheque Holder Name</strong> </label>
+              <input required type="text" #chequeHolderNameRef="ngModel" 
+                  placeholder="Enter Name" name="chequeHolderName" [(ngModel)]="chequeHolderName" class="form-control" required />
+  
+                  <div *ngIf="(chequeHolderNameRef.invalid) && (chequeHolderNameRef.touched)" class="alert alert-danger" style="margin-top: 5px;" >
+                    <span *ngIf="chequeHolderNameRef.errors.required"> Please Enter Cheque Holder Name </span>
+                  </div>
+  
+          </div>
+          <div class="form-group">
+              <label><strong>cheque Bank Name</strong> </label>
+              <input required type="text" #chequeBankNameRef="ngModel" 
+                  placeholder="Enter Bank Name" name="chequeBankName" [(ngModel)]="chequeBankName" class="form-control" required />
+  
+                  <div *ngIf="(chequeBankNameRef.invalid) && (chequeBankNameRef.touched)" class="alert alert-danger" style="margin-top: 5px;" >
+                    <span *ngIf="chequeBankNameRef.errors.required"> Please Enter Cheque Bank Name </span>
+                  </div>
+  
+          </div>
+          <div class="form-group">
+              <label><strong>Cheque Ifsc</strong> </label>
+              <input  type="text" #chequeIfscRef="ngModel" 
+                  placeholder="Enter Bank IFSC" name="chequeIfsc" [(ngModel)]="chequeIfsc" class="form-control" required />
+  
+                  <div *ngIf="(chequeIfscRef.invalid) && (chequeIfscRef.touched)" class="alert alert-danger" style="margin-top: 5px;" >
+                    <span *ngIf="chequeIfscRef.errors.required"> Please Enter Cheque IFSC </span>
+                  </div>
+  
+          </div>
+`           
+          <div class="form-group">
+              <label for="chequeIssueDate"><strong>Cheque Issue Date</strong></label>
+              <input type="date" class="form-control"  placeholder="Select Cheque issue date" #chequeIssueDateRef="ngModel" name="chequeIssueDate" [(ngModel)]="chequeIssueDate" required/>
+              <div *ngIf="(chequeIssueDateRef.invalid) && (chequeIssueDateRef.touched)" class="alert alert-danger" style="margin-top: 5px;" >
+                <span *ngIf="chequeIssueDateRef.errors.required"> Please Enter Cheque issue date </span>
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="chequeAmount"><strong>Cheque Amount</strong></label>
+              <input type="number" class="form-control" placeholder="Enter the amount" name="chequeAmount" #chequeAmountRef="ngModel" [(ngModel)]="chequeAmount" required/>
+              <div *ngIf="(chequeAmountRef.invalid) && (chequeAmountRef.touched)" class="alert alert-danger" style="margin-top: 5px;" >
+                <span *ngIf="chequeAmountRef.errors.required"> Please Enter Cheque amount </span>
+              </div> 
+          </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              <button type="submit"  value="submit" class="btn btn-success" >Proceed</button>
+            </div>
+          </form>
+        </div>
+       
+      </div>
+    </div>
+  </div>

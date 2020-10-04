@@ -1,0 +1,182 @@
+
+
+<br>
+    <h3 class="text-center"><u>Add Account</u></h3>
+    <br>
+
+<div class="container">
+<form #AccountForm="ngForm" (ngSubmit)="accountDetails()" ngNativeValidate>
+    <div class="form-group row"><br>
+      <label for="inputAccountType" class="col-sm-2 col-form-label"><span class="req">* </span>Account Type</label>
+      <div class="col-sm-10">
+        
+
+        <div class="form-group">
+          
+
+          <select name="accountType" [(ngModel)]="register.accountType" id="inputAccountType" required>
+            <option value="Saving">Saving</option>
+            <option value="Checking">Checking</option>
+            
+          </select>
+
+             
+         
+        </div>
+
+        
+      </div>
+     </div>
+         
+
+
+
+     <div class="form-group row">
+      <label for="inputAccountStatus" class="col-sm-2 col-form-label"><span class="req">* </span>Account Status</label>
+      <div class="col-sm-10">
+
+        <select name="accountType" [(ngModel)]="register.accountStatus" id="inputAccountStatus" required>
+          <option value="Active Account">Active Account</option>
+          <option value="Joint Account">Joint Account</option>
+          <option value="Deposit Account">Deposit Account</option>
+          
+        </select>
+        <!-- <input type="accountStatus" class="form-control" id="inputAccountStatus" placeholder="Enter Account Status" name="accountStatus" [(ngModel)]="register.accountStatus" required> -->
+      </div>
+     </div>
+
+      <div class="form-group row">
+        <label for="inputAccountBalance" class="col-sm-2 col-form-label"><span class="req">* </span>Account Balance</label>
+        <div class="col-sm-10">
+          <input type="accountBalance" class="form-control" id="inputAccountBalance" placeholder="Enter Account Balance" name="accountBalance" [(ngModel)]="register.accountBalance" required>
+         </div>
+       
+        </div>
+      
+
+     
+     <div class="form-group row">
+      <label for="inputCustomerName" class="col-sm-2 col-form-label"><span class="req">* </span>Customer Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputCustomerName" placeholder="Enter Customer Name" name="custName" [(ngModel)]="customer.custName" required>
+       </div>
+       </div>
+
+       <div class="form-group row"><br>
+        <label for="inputCustomerAadhar" class="col-sm-2 col-form-label"><span class="req">* </span>Customer Aadhar</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputCustomerAadhar" placeholder="Enter Customer Aadhar" name="custAadhar" [(ngModel)]="customer.custAadhar" required>
+        </div>
+       </div>
+
+       <div class="form-group row"><br>
+        <label for="inputCustomerPan" class="col-sm-2 col-form-label"><span class="req">* </span>Customer PAN</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputCustomerPan" placeholder="Enter Customer PAN" name="custPan" [(ngModel)]="customer.custPan" required>
+        </div>
+       </div>
+       
+
+       <div class="form-group row"><br>
+        <label for="inputCustomerContact" class="col-sm-2 col-form-label"><span class="req">* </span>Customer Contact</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputCustomerContact" placeholder="Enter Customer Contact" name="custContact" [(ngModel)]="customer.custContact" required>
+        </div>
+       </div>
+
+     <div class="form-group row">
+      <label for="inputGender" class="col-sm-2 col-form-label"><span class="req">* </span>Gender</label>
+      <div class="col-sm-10">
+
+        <select name="gender" [(ngModel)]="customer.gender" id="inputGender" required>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          
+        </select>
+        <!-- <input type="text" class="form-control" id="inputGender" placeholder="Gender" name="gender" [(ngModel)]="customer.gender" required> -->
+      </div>
+     </div>
+
+     <div class="form-group row">
+      <label for="inputCustEmail" class="col-sm-2 col-form-label"><span class="req">* </span>Email</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputEmail" placeholder="Enter Email" name="custEmail" [(ngModel)]="customer.custEmail" required>
+      </div>
+     </div>
+
+
+     <div class="form-group row">
+      <label for="inputDateOfBirth" class="col-sm-2 col-form-label"><span class="req">* </span>Date Of Birth</label>
+      <div class="col-sm-10">
+        <input type="date" class="form-control" id="inputDate" placeholder="Enter Date Of Birth" name="custDob" [(ngModel)]="customer.custDob" required>
+      </div>
+     </div>
+           
+
+
+
+
+
+
+     <div class="form-group row">
+      <label for="inputAddressLine1" class="col-sm-2 col-form-label"><span class="req">* </span>AddressLine 1</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputAddressLine1" placeholder="Enter Address Line1" name="addressLine1" [(ngModel)]="address.addressLine1" required>
+      </div>
+     </div>
+
+     <div class="form-group row">
+      <label for="inputAddressLine2" class="col-sm-2 col-form-label"><span class="req">* </span>AddressLine 2</label>
+      <div class="col-sm-10">
+        <input type="addressLine2" class="form-control" id="inputAddressLine2" placeholder="Enter Address Line2" name="addressLine2" [(ngModel)]="address.addressLine2" required>
+      </div>
+     </div>
+
+     <div class="form-group row">
+      <label for="inputAddressLine3" class="col-sm-2 col-form-label"><span class="req">* </span>AddressLine 3</label>
+      <div class="col-sm-10">
+        <input type="addressLine3" class="form-control" id="inutAddressLine3" placeholder="Enter Address Line3" name="addressLine3" [(ngModel)]="address.addressLine3" required>
+      </div>
+     </div>
+
+     <div class="form-group row">
+      <label for="inputCity" class="col-sm-2 col-form-label"><span class="req">* </span>City</label>
+      <div class="col-sm-10">
+        <input type="addressCity" class="form-control" id="inputCity" placeholder="Enter City" name="addressCity" [(ngModel)]="address.addressCity" required>
+      </div>
+     </div>
+
+     <div class="form-group row">
+      <label for="inputState" class="col-sm-2 col-form-label"><span class="req">* </span>State</label>
+      <div class="col-sm-10">
+        <input type="addressState" class="form-control" id="inputState" placeholder="Enter State" name="addressState" [(ngModel)]="address.addressState" required>
+      </div>
+     </div>
+
+     <div class="form-group row">
+      <label for="inputCountry" class="col-sm-2 col-form-label"><span class="req">* </span>Country</label>
+      <div class="col-sm-10">
+        <input type="addressCountry" class="form-control" id="inputAddressCountry" placeholder="Enter Country" name="addressCountry" [(ngModel)]="address.addressCountry" required>
+      </div>
+     </div>
+
+     <div class="form-group row">
+      <label for="inputZipCode" class="col-sm-2 col-form-label"><span class="req">* </span>Zip Code</label>
+      <div class="col-sm-10">
+        <input type="addressZipCode" class="form-control" id="inputAddressZipCode" placeholder="Enter ZipCode" name="addressZipcode" [(ngModel)]="address.addressZipcode" required>
+      </div>
+     </div>
+     
+
+
+
+    
+    
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </form>
+
+</div>

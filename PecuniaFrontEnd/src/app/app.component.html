@@ -1,2 +1,25 @@
-
+<head>
+  <title></title>
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> -->
+</head>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">Pecunia Bank</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="accountManagement">Acconut Management <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="transactionManagement">Transaction Management</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="passbookManagement">Passbook Management</a>
+      </li>
+  </ul>
+    <button class="btn btn-outline-primary active my-2 my-sm-0 " (click)="logout()" type="submit">logout</button>
+  </div>
+</nav>
 <router-outlet></router-outlet>

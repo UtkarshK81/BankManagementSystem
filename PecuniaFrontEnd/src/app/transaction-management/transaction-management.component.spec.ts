@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TransactionManagementComponent } from './transaction-management.component';
 
@@ -6,12 +6,12 @@ describe('TransactionManagementComponent', () => {
   let component: TransactionManagementComponent;
   let fixture: ComponentFixture<TransactionManagementComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
       declarations: [ TransactionManagementComponent ]
     })
     .compileComponents();
-  });
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TransactionManagementComponent);
