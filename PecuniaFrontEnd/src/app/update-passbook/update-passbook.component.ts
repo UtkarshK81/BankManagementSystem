@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PassbookService } from '../passbook.service'
 import { Router } from '@angular/router';
 import { Transaction } from '../transaction';
+import { NotificationService } from '../notification.service';
 @Component({
   selector: 'app-update-passbook',
   templateUrl: './update-passbook.component.html',
@@ -14,7 +15,7 @@ export class UpdatePassbookComponent implements OnInit {
   message: string;
   errorMsg:string;
   result: string;
-  constructor(private service: PassbookService, private router: Router) { }
+  constructor(private service: PassbookService, private router: Router,private notify:NotificationService) { }
 
   ngOnInit(): void {
   }
@@ -33,13 +34,13 @@ export class UpdatePassbookComponent implements OnInit {
         (error)=>{
           this.errorMsg = error.error.message;
           console.log(error.error);
-          alert(this.errorMsg);
+          this.notify.showError(this.errorMsg,"Update Passbook");
         });
       }
     },(error)=>{
       this.errorMsg = JSON.parse(error.error).message;
       console.log(error.error);
-      alert(this.errorMsg);
+      this.notify.showError(this.errorMsg,"Update Passbook");
     });
   }
 

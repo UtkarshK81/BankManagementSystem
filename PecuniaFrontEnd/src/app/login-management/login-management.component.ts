@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms'
 import { Router } from '@angular/router';
 import { Employee } from '../employee';
+import { NotificationService } from '../notification.service';
 import { SignINService } from '../sign-in.service';
 @Component({
   selector: 'app-login-management',
@@ -12,7 +13,7 @@ export class LoginManagementComponent implements OnInit {
   employee=new Employee();
   message='';
 
-  constructor(private service:SignINService, private router:Router) { }
+  constructor(private service:SignINService, private router:Router,private notifyService : NotificationService) { }
 
   ngOnInit() {
   }
@@ -27,7 +28,7 @@ export class LoginManagementComponent implements OnInit {
     },
       error =>{ 
         console.log("Wrong Details");
-        this.message="Wrong EmailID and Password.Login Again";
+        this.notifyService.showError("Wrong EmailID and Password Login Again","LogIn Error");
       }
       
     )

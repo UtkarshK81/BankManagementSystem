@@ -3,6 +3,7 @@ import { PassbookService } from '../passbook.service'
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { Transaction } from '../transaction';
+import { NotificationService } from '../notification.service';
 
 @Component({
   selector: 'app-account-summary',
@@ -22,7 +23,7 @@ export class AccountSummaryComponent implements OnInit {
   isValidDate: boolean;
   errorMsg: string;
 
-  constructor(private service: PassbookService, private router: Router, private datePipe: DatePipe) {
+  constructor(private service: PassbookService, private router: Router, private datePipe: DatePipe,private notify:NotificationService) {
     this.date = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
   }
                                                                                                                     
@@ -41,7 +42,7 @@ export class AccountSummaryComponent implements OnInit {
             this.transac = data;
             this.transactions = this.transac;
             if (this.transac == 0) {
-              alert("No Transactions Present!!");
+              this.notify.showInfo("No Transaction Present","Account Summary");
             }
             else {
               this.router.navigate(['/response'], { queryParams: { accountId: this.accountId, transactions: JSON.stringify(this.transactions), } });
@@ -49,7 +50,7 @@ export class AccountSummaryComponent implements OnInit {
           },(error)=>{
             this.errorMsg = error.error.message;
             console.log(error.error);
-            alert(this.errorMsg);
+            this.notify.showError(this.errorMsg,"Account Summary");
           }
           );
 
@@ -60,7 +61,7 @@ export class AccountSummaryComponent implements OnInit {
       },(error)=>{
         this.errorMsg = JSON.parse(error.error).message;
         console.log(error.error);
-        alert(this.errorMsg);
+        this.notify.showError(this.errorMsg,"Account Summary");
       });
 
     }

@@ -16,6 +16,8 @@ import { AddAccountComponent } from './add-account/add-account.component';
 import { DeleteAccountComponent } from './delete-account/delete-account.component';
 import { SearchAccountComponent } from './search-account/search-account.component';
 import { UpdateAccountComponent } from './update-account/update-account.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { UpdateAccountComponent } from './update-account/update-account.componen
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
