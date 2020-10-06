@@ -16,7 +16,7 @@ import javax.validation.constraints.NotNull;
 public class Address {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="seq")
-	@SequenceGenerator(name="seq",initialValue=101,allocationSize=100)
+	@SequenceGenerator(name="seq",initialValue=101,allocationSize=1)
 	@Column(length=12)
 	private long addressId;
 	@NotNull

@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 public class Branch {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="seq")
-	@SequenceGenerator(name="seq",initialValue=111,allocationSize=100)
+	@SequenceGenerator(name="seq",initialValue=111,allocationSize=1)
 	@Column(length=4)
 	private long branchId;
 	@NotNull

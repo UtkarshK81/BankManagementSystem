@@ -18,7 +18,7 @@ public class LoanRequest {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="seq")
-	@SequenceGenerator(name="seq",initialValue=100001,allocationSize=100)
+	@SequenceGenerator(name="seq",initialValue=100001,allocationSize=1)
 	@Column(length = 12)
 	private long loanRequestId;
 	

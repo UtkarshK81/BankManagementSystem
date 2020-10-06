@@ -15,7 +15,7 @@ import javax.persistence.GenerationType;
 public class Cheque {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="seq")
-	@SequenceGenerator(name="seq",initialValue=10101,allocationSize=100)
+	@SequenceGenerator(name="seq",initialValue=10101,allocationSize=1)
 	@Column(length=12)
 	private long chequeId;
 	

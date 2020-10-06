@@ -33,7 +33,7 @@ public class Transaction implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
-	@SequenceGenerator(name = "seq", initialValue = 1000011, allocationSize = 100)
+	@SequenceGenerator(name = "seq", initialValue = 1000011, allocationSize = 1)
 	@Column(length = 8)
 	private long transId;
 	@Column(length = 8)
